@@ -1,0 +1,89 @@
+PROJECT: RETAIL SALES ANALYSIS
+DATASET: ADVENTUREWORKS SALES
+TOOLS: MYSQL, EXCEL, POWER BI, TABLEAU
+
+
+1. UNION OF FACT INTERNET SALES AND FACT INTERNET SALES NEW
+
+Combine the records from Fact Internet Sales and Fact Internet Sales New into a single sales dataset.
+
+
+2. LOOKUP PRODUCT NAME
+
+Retrieve ProductName from the Product table and add it to the Sales table using ProductKey.
+
+
+3. LOOKUP CUSTOMER FULL NAME AND UNIT PRICE
+
+Retrieve CustomerFullName from the Customer table and UnitPrice from the Product table and add them to the Sales table.
+
+
+4. CREATE DATE FIELDS FROM ORDERDATEKEY
+
+Convert OrderDateKey into a proper date field and calculate the following date-related attributes:
+
+A. Year
+B. Month Number
+C. Month Full Name
+D. Quarter (Q1, Q2, Q3, Q4)
+E. YearMonth (YYYY-MMM)
+F. Weekday Number
+G. Weekday Name
+H. Financial Month
+I. Financial Quarter
+
+
+5. CALCULATE SALES AMOUNT
+
+Calculate SalesAmount using UnitPrice, OrderQuantity, and UnitDiscount.
+
+
+6. CALCULATE PRODUCTION COST
+
+Calculate ProductionCost using UnitCost and OrderQuantity.
+
+
+7. CALCULATE PROFIT
+
+Calculate Profit using SalesAmount and ProductionCost.
+
+
+8. MONTHWISE SALES PIVOT TABLE
+
+Create a pivot table showing monthwise sales with Year available as a filter.
+
+
+9. YEARWISE SALES BAR CHART
+
+Create a bar chart to visualize yearwise sales.
+
+
+
+10. MONTHWISE SALES LINE CHART
+
+Create a line chart to visualize monthwise sales.
+
+
+11. QUARTERWISE SALES PIE CHART
+
+Create a pie chart showing sales distribution across Quarter 1, Quarter 2, Quarter 3, and Quarter 4.
+
+
+
+12. SALES AMOUNT VS PRODUCTION COST
+
+Create a combination chart (Bar + Line) to compare SalesAmount and ProductionCost.
+
+
+13. ADDITIONAL KPI AND CHART ANALYSIS
+
+Create additional KPIs and charts to analyze:
+
+A. Product Performance
+B. Customer Performance
+C. Regional Performance
+
+
+14. DASHBOARD DEVELOPMENT
+
+Create one or more interactive dashboards incorporating the required KPIs and visualizations.
