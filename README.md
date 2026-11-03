@@ -21,8 +21,8 @@ The analysis involves data cleaning, transformation, SQL-based querying, KPI dev
 |---|---|
 | MySQL | Data cleaning, transformation, joins, and analytical queries |
 | Microsoft Excel | Data analysis, KPI calculations, and dashboard development |
-| Power BI | Interactive dashboards and business intelligence |
-| Tableau | Data visualization and sales performance analysis |
+| Power BI | Data analysis, KPI calculations, and dashboard development |
+| Tableau | Data analysis, KPI calculations, and dashboard development |
 
 ## Project Workflow
 
