@@ -1,7 +1,7 @@
 create database adventureworks;
 use adventureworks;
 
--- Q 0
+-- Q1
 
 CREATE TABLE CombinedSales AS
 SELECT *FROM FactInternetSales
@@ -10,7 +10,7 @@ SELECT *FROM Fact_Internet_Sales_New;
 
 SELECT * FROM CombinedSales; -- ans
 
--- Q1
+-- Q2
 
 SELECT COUNT(*) FROM factinternetsales;
 SELECT s.*, 
@@ -18,7 +18,7 @@ SELECT s.*,
 FROM FactInternetSales s
 LEFT JOIN DimProduct p ON s.ProductKey = p.ProductKey; -- ans 
 
--- Q2
+-- Q3
 
 SELECT s.*, 
     CONCAT(c.FirstName, ' ', COALESCE(c.MiddleName, ''), ' ', c.LastName) AS CustomerFullName,
@@ -29,7 +29,7 @@ left JOIN dimcustomer c
 left JOIN dimproduct p 
     ON s.ProductKey = p.ProductKey; -- ans 
 
--- Q3
+-- Q4
 
 SELECT OrderDateKey,
     -- Step 1: Create a proper Date field from OrderDateKey (YYYYMMDD converted to DATE)
@@ -43,7 +43,7 @@ SELECT OrderDateKey,
     DAYNAME(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d')) AS DayName
 FROM factinternetsales; -- ans 
 
--- Q4
+-- Q5
  
 SELECT OrderDateKey,
     -- Step 1: Create a proper Date field from OrderDateKey
@@ -54,7 +54,7 @@ SELECT OrderDateKey,
     MONTH(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d')) AS Monthno,
     -- C. Monthfullname
     MONTHNAME(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d')) AS Monthfullname,
-    -- D. Quarter (Q1, Q2, Q3, Q4)
+    -- D. Quarter (Quarter 1, Quarter 2, Quarter 3, Quarter 4)
     CONCAT('Q', QUARTER(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d'))) AS Quarter,
     -- E. YearMonth (YYYY-MMM)
     DATE_FORMAT(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d'), '%Y-%b') AS YearMonth,
@@ -77,7 +77,7 @@ SELECT OrderDateKey,
         END) AS Financial_Quarter
 FROM FactInternetSales; -- ans 
 
--- Q5 
+-- Q6
 
 SELECT OrderQuantity,
     UnitPrice,
@@ -87,7 +87,7 @@ SELECT OrderQuantity,
     (UnitPrice * OrderQuantity) - ((UnitPrice * OrderQuantity) * UnitPriceDiscountPct) AS Calculated_SalesAmount
 FROM FactInternetSales; -- ans 
 
--- Q6 
+-- Q7
  
 SELECT OrderQuantity,
     ProductStandardCost AS UnitCost,
@@ -96,7 +96,7 @@ SELECT OrderQuantity,
     (ProductStandardCost * OrderQuantity) AS Calculated_ProductionCost
 FROM FactInternetSales; -- ans 
 
--- Question 7 
+-- Q8
 
 SELECT  SalesAmount,
     TotalProductCost,
@@ -104,7 +104,7 @@ SELECT  SalesAmount,
     (SalesAmount - TotalProductCost) AS Profit
 FROM FactInternetSales; -- ans 
 
--- Q8
+-- Q9
 
 SELECT FLOOR(OrderDateKey / 10000) AS Year,
     FLOOR(OrderDateKey / 100) % 100 AS Monthno,
@@ -115,7 +115,7 @@ GROUP BY FLOOR(OrderDateKey / 10000),
     FLOOR(OrderDateKey / 100) % 100
 ORDER BY Monthno; -- ans 
 
--- Q9
+-- Q10
 
 SELECT 
     FLOOR(OrderDateKey / 10000) AS `Year`,
@@ -124,7 +124,7 @@ FROM factinternetsales
 GROUP BY FLOOR(OrderDateKey / 10000)
 ORDER BY `Year`; -- ans 
     
-    -- Q10
+-- Q11
     
     SELECT 
     FLOOR(OrderDateKey / 100) % 100 AS `Monthno`,
@@ -133,7 +133,7 @@ FROM factinternetsales
 GROUP BY FLOOR(OrderDateKey / 100) % 100
 ORDER BY `Monthno`; -- ans 
     
-    -- q11
+-- Q12
     
 SELECT CONCAT('Q', QUARTER(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d'))) AS `Quarter`,
     SUM(SalesAmount) AS `TotalSales`
@@ -141,7 +141,7 @@ FROM factinternetsales
 GROUP BY CONCAT('Q', QUARTER(STR_TO_DATE(CAST(OrderDateKey AS CHAR), '%Y%m%d')))
 ORDER BY `Quarter`; -- ans
     
-    -- q13
+-- Q13
     
     SELECT FLOOR(OrderDateKey / 10000) AS `Year`,
     SUM(SalesAmount) AS `TotalSales`,
@@ -150,7 +150,7 @@ FROM factinternetsales
 GROUP BY FLOOR(OrderDateKey / 10000)
 ORDER BY `Year`; -- ans 
 
-    -- Q15
+-- Q14
 
 SELECT 
     COUNT(SalesOrderNumber) AS `TotalOrders`,
