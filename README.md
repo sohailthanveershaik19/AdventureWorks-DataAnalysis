@@ -81,6 +81,7 @@ Key analysis areas:
 
 ## Repository Structure
 
+```text
 AdventureWorks-DataAnalysis/
 │
 ├── SQL/
@@ -96,3 +97,4 @@ AdventureWorks-DataAnalysis/
 │   └── tableau.png
 │
 └── README.md
+```
